@@ -1,0 +1,85 @@
+---
+title: "BEST MED Seminar Results"
+output: html_document
+---
+
+<style type="text/css">
+.table {
+
+    width: 60%;
+
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F)
+```
+
+## Summary of results
+```{r gap_data, echo = F}
+DT::datatable(gap_analysis, filter = "top")
+```
+
+***
+
+## Gap Analysis
+```{r covered_tab, echo=FALSE}
+freq_covered
+```
+
+```{r covered, echo=FALSE}
+covered_plotly
+```
+***
+```{r part_covered_tab, echo=FALSE}
+freq_part
+```
+
+```{r part_covered, echo=FALSE}
+part_covered_plotly
+```
+
+
+***
+```{r not_covered_tab, echo=FALSE}
+freq_not_covered
+```
+
+```{r not_covered, echo=FALSE}
+not_covered_plotly
+```
+***
+
+## Implementation methodology results
+
+```{r q1, echo=FALSE}
+q1_plotly
+```
+
+```{r q7, echo=FALSE}
+q7_plotly
+```
+
+```{r q11, echo=FALSE}
+q11_plotly
+```
+***
+## Text analysis of partners' reports
+```{r not_covered_text, echo=FALSE}
+
+freq_plotly
+```
+
+## Word cloud
+```{r wordcloud, echo=FALSE}
+set.seed(1234)
+wordcloud(words = d$word, freq = d$freq, min.freq = 2,
+          max.words = 60, random.order = F, rot.per = 0.35, 
+          colors = brewer.pal(5, "Blues"))
+          #scale = c(4,0.5))
+```
+
+## Word network (word associations)
+```{r wordnetwork, echo=FALSE}
+word_network
+```
